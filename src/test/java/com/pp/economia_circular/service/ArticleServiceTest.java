@@ -57,7 +57,7 @@ class ArticleServiceTest {
         testArticulo.setTitulo("Test Article");
         testArticulo.setDescripcion("Test Description");
         testArticulo.setCategoria(Articulo.CategoriaArticulo.ELECTRONICOS);
-        testArticulo.setCondicion(Articulo.CondicionArticulo.BUENO);
+        testArticulo.setCondicion(Articulo.CondicionArticulo.USADO);
         testArticulo.setEstado(Articulo.EstadoArticulo.DISPONIBLE);
         testArticulo.setUsuario(testUser);
         testArticulo.setCreadoEn(LocalDateTime.now());
@@ -67,7 +67,7 @@ class ArticleServiceTest {
         createDto.setTitle("Test Article");
         createDto.setDescription("Test Description");
         createDto.setCategory(Articulo.CategoriaArticulo.ELECTRONICOS);
-        createDto.setCondition(Articulo.CondicionArticulo.BUENO);
+        createDto.setCondition(Articulo.CondicionArticulo.USADO);
     }
 
     @Test
@@ -218,13 +218,13 @@ class ArticleServiceTest {
         Pageable pageable = PageRequest.of(0, 10);
         ArticleSearchDto searchDto = new ArticleSearchDto("Test", 
             Articulo.CategoriaArticulo.ELECTRONICOS, 
-            Articulo.CondicionArticulo.BUENO);
+            Articulo.CondicionArticulo.USADO);
         Page<Articulo> articlePage = new PageImpl<>(Arrays.asList(testArticulo));
         
         when(articleRepository.searchArticles(
             "Test", 
             Articulo.CategoriaArticulo.ELECTRONICOS, 
-            Articulo.CondicionArticulo.BUENO, 
+            Articulo.CondicionArticulo.USADO, 
             pageable))
             .thenReturn(articlePage);
 
@@ -248,7 +248,7 @@ class ArticleServiceTest {
         updateDto.setTitle("Updated Title");
         updateDto.setDescription("Updated Description");
         updateDto.setCategory(Articulo.CategoriaArticulo.LIBROS);
-        updateDto.setCondition(Articulo.CondicionArticulo.COMO_NUEVO);
+        updateDto.setCondition(Articulo.CondicionArticulo.REACONDICIONADO);
 
         // Act
         ArticleResponseDto result = articleService.updateArticle(1L, updateDto);

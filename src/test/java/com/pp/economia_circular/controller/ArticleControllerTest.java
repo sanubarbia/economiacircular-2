@@ -98,14 +98,14 @@ class ArticleControllerTest {
         createDto.setTitle("Test Article");
         createDto.setDescription("Test Description");
         createDto.setCategory(Articulo.CategoriaArticulo.ELECTRONICOS);
-        createDto.setCondition(Articulo.CondicionArticulo.BUENO);
+        createDto.setCondition(Articulo.CondicionArticulo.USADO);
 
         responseDto = ArticleResponseDto.builder()
                 .id(1L)
                 .title("Test Article")
                 .description("Test Description")
                 .category(Articulo.CategoriaArticulo.ELECTRONICOS)
-                .condition(Articulo.CondicionArticulo.BUENO)
+                .condition(Articulo.CondicionArticulo.USADO)
                 .status(Articulo.EstadoArticulo.DISPONIBLE)
                 .userId(1L)
                 .username("test@example.com")
